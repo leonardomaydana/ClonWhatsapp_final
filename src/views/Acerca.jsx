@@ -1,4 +1,4 @@
-function Acerca() {
+const Acerca = () => {
   return (
 
     <div>
@@ -15,4 +15,4 @@ function Acerca() {
   );
 }
 
-export default { Acerca }
+export default Acerca

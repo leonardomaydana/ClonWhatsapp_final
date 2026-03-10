@@ -4,7 +4,7 @@ import { NotFound } from "../views/NotFound"
 import { Login } from "../views/Login"
 import { RouteProtected } from "../components/RouteProtected"
 import Register  from "../views/Register" // nueva ruta 
-import { Acerca } from "../views/Acerca"
+import Acerca  from "../views/Acerca"
 
 const RouterApp = () => {
   return (
@@ -13,7 +13,7 @@ const RouterApp = () => {
         <Route path="/" element={<RouteProtected><Home /></RouteProtected>} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/registro" element={<Register />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/acerca" element={<Acerca />} />
       </Routes>
     </BrowserRouter>
