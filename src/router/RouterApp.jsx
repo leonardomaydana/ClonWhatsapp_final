@@ -3,7 +3,7 @@ import { Home } from "../views/Home"
 import { NotFound } from "../views/NotFound"
 import { Login } from "../views/Login"
 import { RouteProtected } from "../components/RouteProtected"
-import { Register } from "../views/Register" // nueva ruta 
+import Register  from "../views/Register" // nueva ruta 
 
 const RouterApp = () => {
   return (
