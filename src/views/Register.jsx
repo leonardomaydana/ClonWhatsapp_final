@@ -27,37 +27,22 @@ function Registro() {
     alert("Usuario registrado correctamente");
   };
 
-  return (
-    <div>
-      <h2>Registro</h2>
+  return(
+  <div className="auth-container">
+    <div className="auth-card">
 
-      <form onSubmit={handleSubmit}>
+      <h2>Crear cuenta</h2>
 
-        <input
-          type="text"
-          placeholder="Nombre"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-        />
+      <input type="text" placeholder="Nombre" />
+      <input type="email" placeholder="Correo electronico" />
+      <input type="password" placeholder="Contraseña" />
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <button>Registrarse</button>
 
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button type="submit">Registrarse</button>
-
-      </form>
+      <p ClassName="auth-footer">¿Ya tienes cuenta?<link to="/login">Iniciar sesion</link>
+      </p>
     </div>
+  </div>
   );
 }
 
