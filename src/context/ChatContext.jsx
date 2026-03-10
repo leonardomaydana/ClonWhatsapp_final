@@ -29,6 +29,21 @@ const ChatProvider = ({ children }) => {
     }
   }
 
+  const register = (userData) => {
+    const users = mockUsers.find (user => user.mail === userData.email)
+    if (!foundUser) {
+      console.log(userData)
+      if (UserData.password === userData.confirmpassword) {
+        console.log("Crear usuario")
+        return true
+      }
+      return false
+    } else {
+      alert("Mail ya registrado, prueba otro")
+      return false
+    }
+  }
+
   const logout = () => {
     localStorage.removeItem("user")
   }
