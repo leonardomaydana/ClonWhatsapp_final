@@ -1,16 +1,23 @@
-# React + Vite
+# TP Final - Desarrollo Web Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Trabajo final que implementa registro de usuarios, persistencia con Context + localStorage, página pública /acerca y deploy en Vercel.
 
-Currently, two official plugins are available:
+## Tecnologías
+- React, Vite, React Router
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Cómo ejecutar localmente
+1. npm install
+2. npm run dev
+3. Abrir http://localhost:5173
 
-## React Compiler
+## Deploy
+Deploy en Vercel (link)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Estructura
+- src/views
+- src/context
+- src/router
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Autor
+Maydana Leonardo Agustin
