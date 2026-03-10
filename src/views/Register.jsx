@@ -1,49 +1,95 @@
-import { useState } from "react";
+import { useContext, useState } from "react"
+import { ChatContext } from "../context/ChatContext"
+import { useNavigate } from "react-router-dom"
 
-function Registro() {
+const Register = () => {
 
-  const [nombre, setNombre] = useState("");
+  const [nombre, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("")
+  const [error,setError] = useState(null)
 
+  const { register ,handleUser} = useContext(ChatContext)
+
+  const navigate = useNavigate()
+
+   const handleChangeName = (e) => {
+    setName(e.target.value)
+  }
+
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value)
+  }
+
+    const handleChangeConfPassword = (e) => {
+    setConfirmpassword(e.target.value)
+  }
+ 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    setError(null)
+    const response = register({name, email, password, confirmpassword })
 
-    if (nombre.length < 3) {
-      alert("El nombre debe tener al menos 3 caracteres");
-      return;
+    if (!response) {
+      setError(true)
+      return
     }
 
-    if (!email.includes("@")) {
-      alert("Email inválido");
-      return;
-    }
+    handleUser({name, email, password})
+    navigate("/")
+  }
+  const handlePage = (e) => {
+    navigate("/login")
+  }
 
-    if (password.length < 6) {
-      alert("La contraseña debe tener al menos 6 caracteres");
-      return;
-    }
-
-    alert("Usuario registrado correctamente");
-  };
-
-  return(
-  <div className="auth-container">
-    <div className="auth-card">
-
-      <h2>Crear cuenta</h2>
-
-      <input type="text" placeholder="Nombre" />
-      <input type="email" placeholder="Correo electronico" />
-      <input type="password" placeholder="Contraseña" />
-
-      <button>Registrarse</button>
-
-      <p ClassName="auth-footer">¿Ya tienes cuenta?<link to="/login">Iniciar sesion</link>
-      </p>
-    </div>
-  </div>
-  );
+  return (
+    <section className="login">
+      <h2 className="title-login">Crear una cuenta</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Nombre"
+          minLength={3}
+          onChange={handleChangeName}
+          required
+        />
+        {name.length < 3 && <p className="error-form">Minimo 3 caracteres</p>}
+        <input
+          type="email"
+          placeholder="Correo electrónico"
+          onChange={handleChangeEmail}
+          required
+        />
+        {!email.includes('@') && <p className="error-form">Mail no valido</p>}
+        <input
+          type="password"
+          minLength={6}
+          placeholder="Contraseña"
+          onChange={handleChangePassword}
+          required
+        />
+        {password.length < 6 && <p className="error-form">Contraseña muy debil (minimo 6)</p>}
+        <input
+          type="password"
+          placeholder="Confirmar Contraseña"
+          minLength={6}
+          onChange={handleChangeConfPassword}
+          required
+        />
+        {confirmpassword !== password && <p className="error-form">Contraseñas deben coincidir</p>}
+        <button>Registrar</button>
+        {
+          error && <p className="error-form">Error al Registrar</p>
+        }
+        <button onClick={handlePage}>Volver a inicio de session</button>
+      </form>
+    </section>
+  )
 }
 
-export default Registro;
+export { Register }
