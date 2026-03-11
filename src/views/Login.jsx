@@ -27,7 +27,6 @@ const Login = () => {
 
     if (!response) {
       setError(true)
-      return
     }
 
     handleUser({ email, password })
@@ -56,7 +55,7 @@ const Login = () => {
         {
           error && <p className="error-form">Error al ingresar</p>
         }
-        <button onClick={handlePage}>Crear cuenta</button>
+        <button type="button"onCliick={()=>navigate("register")}>Crear cuenta</button>
       </form>
     </section>
   )

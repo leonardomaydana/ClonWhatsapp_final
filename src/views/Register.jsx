@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { ChatContext } from "../context/ChatContext"
 import { useNavigate } from "react-router-dom"
 
-const Register = () => {
+function Register () {
 
   const [nombre, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -92,4 +92,4 @@ const Register = () => {
   )
 }
 
-export { Register }
+export default Register
